@@ -3,9 +3,9 @@
 <h3>Comentarios</h3>
 <ul>
 <% @comments.each do |comment|%>
-    <li>
-        <%= comment.description%>
-    </li>
+        <li>
+            <%= comment.description%>  <%= comment.user.email if comment.user%>
+        </li>
 <% end %>
 </ul>
 <div>
