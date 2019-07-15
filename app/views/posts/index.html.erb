@@ -1,19 +1,21 @@
 <h1>Listado de Posts</h1>
-<p><%= link_to "Crear Post", new_post_path %></p>
-<table>
-    <tr>
-        <th> Id </th>
-        <th> Creador </th>
-        <th> Title </th>        
-        <th> Acciones </th>
-    </tr>
-
-    <% @posts.each do |post|%>
+<p class="btn btn-light" ><%= link_to "Crear Post", new_post_path %></p>
+<table class="table table-striped table-dark">    
         <tr>
-            <td><%=  post.id%> </td>
-            <td><%=  post.user.email%> </td>
-            <td><%=  post.title%> </td>
-            <td><%=  link_to "ver",post%> <%=link_to "Editar", edit_post_path(post) %> <%= link_to 'Destroy',  post,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>    
-    <% end %>
+            <th> Id </th>
+            <th> Creador </th>
+            <th> Title </th>        
+            <th> Acciones </th>
+        </tr>        
+        <% @posts.each do |post|%>
+            <tr>
+                <th scope="row"><%=  post.id%> </th>
+                <td><%=  post.user.email%> </td>
+                <td><%=  post.title%> </td>
+                <td class="btn btn-outline-success"><%=  link_to "ver",post%></td> 
+                <td class="btn btn-outline-warning"><%=link_to "Editar", edit_post_path(post) %> </td> 
+                <td class="btn btn-outline-danger"> <%= link_to 'Destroy',  post,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>    
+        <% end %>   
 </table>
+ 
