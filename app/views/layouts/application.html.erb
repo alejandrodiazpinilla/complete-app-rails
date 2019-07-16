@@ -8,22 +8,36 @@
       <style>
       body {
               background-image: url("http://www.makeitreal.com.co/_home/_files/_acerca/20120216154220000000-__-software2.png ");
-      } 
-      
+      }       
+      .table  {
+        margin: auto; 
+        width: 50% !important; 
+      }
+      h3  {
+        margin: auto; 
+        width: 50% !important; 
+      }
+
+      h1 {
+        text-shadow: 3px 2px #f2f2f2;
+      }
+      h3 {
+        text-shadow: 3px 2px #f2f2f2;
+      }
       </style>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <div>
-  <% if signed_in? %>
-    <%= link_to "Salir", destroy_user_session_path, method: :delete %>
-  <% else %>
-    <%= link_to "Registrarse", new_user_registration_path %>
-    <%= link_to "Ingresar", new_user_session_path %>
-  <% end %>
-</div>
+      <div>
+        <% if signed_in? %>
+          <%= link_to "Salir", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Registrarse", new_user_registration_path %>
+          <%= link_to "Ingresar", new_user_session_path %>
+        <% end %>
+      </div>
     <%= yield %>
   </body>
 </html>
